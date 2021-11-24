@@ -54,3 +54,5 @@ group :development, :test do
   gem "database_cleaner-active_record", "~> 2.0"
   gem "pry-byebug", "~> 3.9"
 end
+
+gem "devise", "~> 4.8"
