@@ -14,7 +14,13 @@ class CompetitionsController < ApplicationController
   # GET /competitions/new
   def new
     @competition = Competition.new
-    3.times { @competition.prizes.build }
+
+    # we need tp look for a better place to handle it (maybe a method in the model)
+    if current_user.is_free
+      3.times { @competition.prizes.build }
+    else
+      5.times { @competition.prizes.build }
+    end
   end
 
   # GET /competitions/1/edit
