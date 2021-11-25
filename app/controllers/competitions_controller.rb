@@ -1,4 +1,5 @@
 class CompetitionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_competition, only: %i[ show edit update destroy ]
 
   # GET /competitions or /competitions.json
