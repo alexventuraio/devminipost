@@ -16,10 +16,19 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+  <%= form.fields_for :prizes do |f| %>
+    <div class="prize-container">
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :value %>
+        <%= f.text_field :value %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

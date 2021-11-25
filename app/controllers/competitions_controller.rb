@@ -14,6 +14,7 @@ class CompetitionsController < ApplicationController
   # GET /competitions/new
   def new
     @competition = Competition.new
+    3.times { @competition.prizes.build }
   end
 
   # GET /competitions/1/edit
@@ -23,6 +24,7 @@ class CompetitionsController < ApplicationController
   # POST /competitions or /competitions.json
   def create
     @competition = Competition.new(competition_params)
+    @competition.user = current_user
 
     respond_to do |format|
       if @competition.save
@@ -65,6 +67,6 @@ class CompetitionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def competition_params
-      params.require(:competition).permit(:name)
+      params.require(:competition).permit(:name, prizes_attributes: [:name, :value])
     end
 end
