@@ -1,12 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Competitions</h1>
+<h1>
+  <%= current_user.full_name %> Competitions
+</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>User</th>
+      <th>Total in Prizes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +19,7 @@
       <tr>
         <td><%= competition.name %></td>
         <td><%= competition.user_id %></td>
+        <td><%= competition.prizes.map(&:value).sum %></td>
         <td><%= link_to 'Show', competition %></td>
         <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
         <td><%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
