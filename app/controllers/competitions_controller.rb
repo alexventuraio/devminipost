@@ -73,6 +73,6 @@ class CompetitionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def competition_params
-      params.require(:competition).permit(:name, prizes_attributes: [:name, :value])
+      params.require(:competition).permit(:name, prizes_attributes: [:id, :name, :value])
     end
 end
