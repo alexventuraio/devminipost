@@ -1,24 +1,33 @@
-# README
+# Devminipost
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MVP to create the next generation of DevPost platform.
 
-Things you may want to cover:
+## Project dependecies and versions
 
-* Ruby version
+* Ruby version: 3.0.2
+* Rails version: 6.1.4
+* Database: PostgreSQL
+* Node version: 14.18.0
 
-* System dependencies
+## Setup locally
 
-* Configuration
+> First make sure you have Ruby installed in your system. You can follow the [instructions here](https://www.ruby-lang.org/es/downloads/) depending on your OS.
+> It is recommended to use `Ruby 3.0.2 and newer version`.
 
-* Database creation
+* Install project's gem running `bundle install`
+* Setup DB running `bundle exec rails db:setup`
+* Install JS dependencies
+  * Install yarn (dependencies manager) `npm install --global yarn`
+  * Install JS dependencies `yarn install`
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+Run this command on the terminal in the root folder of the application:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+$ rails s
+```
 
-* Deployment instructions
+Then, visit: [http://localhost:3000/](http://localhost:3000/)
 
-* ...
+At this point you will be able to see the application in your browser. 🎉🎉🎉
