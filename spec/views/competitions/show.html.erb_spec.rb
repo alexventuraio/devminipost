@@ -4,7 +4,7 @@ RSpec.describe "competitions/show", type: :view do
   before(:each) do
     @competition = assign(:competition, Competition.create!(
       name: "Name",
-      user: nil
+      user: create(:user)
     ))
   end
 
