@@ -35,5 +35,7 @@ At this point you will be able to see the application in your browser. 🎉🎉�
 ## Considerations
 
 * We should handle Subscriptions as a separate table so that we can join it with Users.
+* We may consider to show Subscription to user since the Signup form (set the `is_free` user column to true).
 * We should implement something like `Pundint` or `CanCanCan` to handle user permissions.
 * Once we have the JS behavior to add remove prizes dynamically when creating Competitions, we should refactor the logic in `new` action of `CompetitionsController`.
+* Maybe, we can use something like [**ActiveRecord's counter caches**](https://dev.to/loribbaum/rails-5-2-x-rails-6-countercache-gotcha-3bgc) approach for performace at high scale for Competitions to show the total of Prizes value.
