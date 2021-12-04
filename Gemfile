@@ -53,6 +53,7 @@ group :development, :test do
   gem "shoulda-matchers", "~> 5.0"
   gem "database_cleaner-active_record", "~> 2.0"
   gem "pry-byebug", "~> 3.9"
+  gem "rails-controller-testing", "~> 1.0"
 end
 
 gem "devise", "~> 4.8"
