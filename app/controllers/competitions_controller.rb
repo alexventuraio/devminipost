@@ -1,6 +1,7 @@
 class CompetitionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_competition, only: %i[ show edit update destroy ]
+  before_action :is_owner?, only: %i[edit destroy]
 
   # GET /competitions or /competitions.json
   def index
@@ -66,6 +67,13 @@ class CompetitionsController < ApplicationController
   end
 
   private
+    # TODO: handle this more properly, maybe with something like Pundit
+    def is_owner?
+      unless current_user == @competition.user
+        redirect_back fallback_location: competitions_path, notice: 'User is not the owner of the competition'
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_competition
       @competition = Competition.find(params[:id])

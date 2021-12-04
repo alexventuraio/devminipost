@@ -19,8 +19,10 @@
         <td><%= competition.user_id %></td>
         <td><%= competition.prizes.map(&:value).sum %></td>
         <td><%= link_to 'Show', competition %></td>
-        <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
-        <td><%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if is_owner?(competition) %>
+          <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
+          <td><%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
       <%= render competition.prizes %>
     <% end %>
