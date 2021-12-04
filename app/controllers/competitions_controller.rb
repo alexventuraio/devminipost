@@ -20,7 +20,7 @@ class CompetitionsController < ApplicationController
     if current_user.is_free
       3.times { @competition.prizes.build }
     else
-      5.times { @competition.prizes.build }
+      rand(4..10).times { @competition.prizes.build }
     end
   end
 

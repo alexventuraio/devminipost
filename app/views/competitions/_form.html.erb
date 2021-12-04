@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, 'Competition name:' %>
     <%= form.text_field :name %>
   </div>
 
   <%= form.fields_for :prizes do |f| %>
     <div class="prize-container">
       <div class="field">
-        <%= f.label :name %>
+        <%= f.label :name, 'Prize name:' %>
         <%= f.text_field :name %>
       </div>
 

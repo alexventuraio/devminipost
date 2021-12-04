@@ -36,3 +36,4 @@ At this point you will be able to see the application in your browser. 🎉🎉�
 
 * We should handle Subscriptions as a separate table so that we can join it with Users.
 * We should implement something like `Pundint` or `CanCanCan` to handle user permissions.
+* Once we have the JS behavior to add remove prizes dynamically when creating Competitions, we should refactor the logic in `new` action of `CompetitionsController`.
