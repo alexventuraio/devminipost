@@ -14,7 +14,7 @@
 
   <tbody>
     <% @competitions.each do |competition| %>
-      <tr>
+      <tr class="competition-row">
         <td><%= competition.name %></td>
         <td><%= competition.user_id %></td>
         <td><%= competition.prizes.map(&:value).sum %></td>
