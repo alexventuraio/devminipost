@@ -39,3 +39,4 @@ At this point you will be able to see the application in your browser. 🎉🎉�
 * We should implement something like `Pundint` or `CanCanCan` to handle user permissions.
 * Once we have the JS behavior to add remove prizes dynamically when creating Competitions, we should refactor the logic in `new` action of `CompetitionsController`.
 * Maybe, we can use something like [**ActiveRecord's counter caches**](https://dev.to/loribbaum/rails-5-2-x-rails-6-countercache-gotcha-3bgc) approach for performace at high scale for Competitions to show the total of Prizes value.
+* Maybe, we should validate **uniqueness of** Competition's and Prizes' name.
