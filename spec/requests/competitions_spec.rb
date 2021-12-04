@@ -13,7 +13,6 @@
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/competitions", type: :request do
-  
   # Competition. As you add validations to Competition, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
@@ -23,6 +22,11 @@ RSpec.describe "/competitions", type: :request do
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
+
+  before do
+    @user = create(:user)
+    sign_in @user
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -44,6 +48,22 @@ RSpec.describe "/competitions", type: :request do
     it "renders a successful response" do
       get new_competition_url
       expect(response).to be_successful
+    end
+
+    context "assigns the prizes based on User subscription" do
+      it "assigns exactly 3 prizes for free Users" do
+        get new_competition_url
+        expect(@user.is_free).to be_truthy
+        expect(assigns(:competition)).not_to be_nil
+        expect(assigns(:competition).prizes.size).to eq(3)
+      end
+
+      it "assigns more than 3 prizes for paid Users" do
+        @user.update(is_free: false)
+        get new_competition_url
+        expect(@user.is_free).to be_falsey
+        expect(assigns(:competition).prizes.size).to be > 3
+      end
     end
   end
 
