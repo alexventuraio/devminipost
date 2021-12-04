@@ -31,3 +31,8 @@ $ rails s
 Then, visit: [http://localhost:3000/](http://localhost:3000/)
 
 At this point you will be able to see the application in your browser. 🎉🎉🎉
+
+## Considerations
+
+* We should handle Subscriptions as a separate table so that we can join it with Users.
+* We should implement something like `Pundint` or `CanCanCan` to handle user permissions.
